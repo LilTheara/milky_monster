@@ -1,16 +1,15 @@
-input.onButtonPressed(Button.A, function () {
-    pins.servoWritePin(AnalogPin.P0, 180)
-    basic.showNumber(180)
+let go = 0
+input.onSound(DetectedSound.Loud, function () {
+    go = 1
 })
-input.onButtonPressed(Button.B, function () {
-    pins.servoWritePin(AnalogPin.P0, 180)
-    basic.showNumber(0)
+input.onSound(DetectedSound.Quiet, function () {
+    go = 0
 })
-basic.showString("calibrate")
 basic.forever(function () {
-    pins.servoWritePin(AnalogPin.P0, input.lightLevel())
-    led.plotBarGraph(
-    input.lightLevel(),
-    0
-    )
+    if (go == 1) {
+        servos.P0.setAngle(0)
+        basic.pause(500)
+        servos.P0.setAngle(180)
+        basic.pause(500)
+    }
 })
