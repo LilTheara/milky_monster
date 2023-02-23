@@ -1,4 +1,7 @@
 let go = 0
+/**
+ * Mâchoire
+ */
 input.onSound(DetectedSound.Loud, function () {
     go = 1
 })
@@ -10,6 +13,6 @@ basic.forever(function () {
         servos.P0.setAngle(0)
         basic.pause(800)
         servos.P0.setAngle(180)
-        basic.pause(1000)
+        basic.pause(900)
     }
 })
