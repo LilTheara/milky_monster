@@ -11,8 +11,8 @@ input.onSound(DetectedSound.Quiet, function () {
 basic.forever(function () {
     if (go == 1) {
         servos.P0.setAngle(0)
-        basic.pause(1000)
-        servos.P0.setAngle(180)
-        basic.pause(1000)
+        basic.pause(800)
+        servos.P0.setAngle(100)
+        basic.pause(800)
     }
 })
